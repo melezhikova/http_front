@@ -1,6 +1,6 @@
 export function getAllTickets(callback) {
   const xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://git.heroku.com/http-back.git?method=allTickets');
+  xhr.open('GET', 'https://http-back.herokuapp.com/?method=allTickets');
 
   xhr.addEventListener('load', () => {
     if (xhr.status >= 200 && xhr.status < 300) {
@@ -21,7 +21,7 @@ export function ticketByIdGET(event, callback) {
   const ticketDiv = event.currentTarget.closest('.ticketDiv');
   const ticketId = ticketDiv.dataset.idTicket;
   const xhr = new XMLHttpRequest();
-  xhr.open('GET', `https://git.heroku.com/http-back.git/?method=ticketById&id=${ticketId}`);
+  xhr.open('GET', `https://http-back.herokuapp.com/?method=ticketById&id=${ticketId}`);
   xhr.addEventListener('load', () => {
     if (xhr.status >= 200 && xhr.status < 300) {
       try {
@@ -37,7 +37,7 @@ export function ticketByIdGET(event, callback) {
 
 export function formPOST(options, method, callback) {
   const xhr = new XMLHttpRequest();
-  xhr.open('POST', 'https://git.heroku.com/http-back.git');
+  xhr.open('POST', 'https://http-back.herokuapp.com/');
   const request = JSON.stringify({ method, object: options });
   xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
   xhr.addEventListener('load', () => {
@@ -56,7 +56,7 @@ export function formPOST(options, method, callback) {
 
 export function ticketIdPOST(options, method, callback) {
   const xhr = new XMLHttpRequest();
-  xhr.open('POST', 'https://git.heroku.com/http-back.git');
+  xhr.open('POST', 'https://http-back.herokuapp.com/');
   const request = JSON.stringify({ method, object: options });
   xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
   xhr.addEventListener('load', () => {
